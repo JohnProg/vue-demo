@@ -1,22 +1,35 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: "babel-eslint",
   parserOptions: {
-    sourceType: 'module'
+    sourceType: "module"
   },
-  // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
-  extends: 'standard',
+  // https://github.com/airbnb/javascript
+  extends: "airbnb",
   // required to lint *.vue files
   plugins: [
-    'html'
+    'html',
   ],
+  settings: {
+    "import/resolver": {
+      webpack: {
+        config: "webpack.config.babel.js"
+      }
+    },
+    'import/extensions': [
+      '.js',
+      '.vue',
+    ],
+  },
   // add your custom rules here
-  'rules': {
-    // allow paren-less arrow functions
-    'arrow-parens': 0,
-    // allow async-await
-    'generator-star-spacing': 0,
+  rules: {
+    // Ensure consistent use of file extension within the import path
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
+    'import/extensions': ['error', 'always', {
+      js: 'never',
+      vue: 'never',
+    }],
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    "no-debugger": [process.env.NODE_ENV === "production" ? "error" : "off"]
   }
 }

@@ -1,9 +1,10 @@
-import Vue from 'vue'
-import App from './App'
+import 'babel-polyfill';
+import Vue from 'vue';
+import App from './App';
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  template: '<App/>',
-  components: { App }
-})
+  template: '<App />',
+  components: { App },
+});

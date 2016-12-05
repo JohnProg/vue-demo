@@ -1,15 +1,19 @@
 <template>
   <div>
     <p>Count: {{ $store.state.count }}</p>
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
+    <Button text="+" @click="increment"></Button>
+    <Button text="-" @click="decrement"></Button>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import Button from './Button';
 
 export default {
+  components: {
+    Button,
+  },
   methods: mapActions([
     'increment',
     'decrement'

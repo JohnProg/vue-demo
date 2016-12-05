@@ -35,11 +35,23 @@ const commonConfig = {
         exclude: [/node_modules/],
       },
       {
+        test: /\.css$/,
+        loaders: ['style', 'css'],
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url',
         query: {
           limit: 10000,
           name: path.join('static', 'img/[name].[hash:7].[ext]'),
+        },
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url',
+        query: {
+          limit: 10000,
+          name: path.join('static', 'fonts/[name].[hash:7].[ext]'),
         },
       },
     ],

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.16.0",
+    "bootstrap": "^3.3.7",
     "vue": "^2.1.4",
     "vuex": "^2.0.0"
   },
@@ -28,6 +29,7 @@
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.1",
     "html-webpack-template": "^5.4.2",
+    "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "vue-loader": "^10.0.2",
     "vue-template-compiler": "^2.1.4",

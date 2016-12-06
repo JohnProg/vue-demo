@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 import Panel from './Panel';
 import Button from './Button';
 
@@ -18,7 +18,7 @@ export default {
   },
   methods: mapActions([
     'increment',
-    'decrement'
+    'decrement',
   ]),
 };
 </script>

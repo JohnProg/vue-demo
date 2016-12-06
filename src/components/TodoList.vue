@@ -1,9 +1,25 @@
 <template>
   <section>
     <Panel title="Todo">
+      <!-- add todo -->
+      <div class="input-group">
+        <input ref="newTodo" type="text" class="form-control" value=""
+          autofocus
+          placeholder="What needs to be done?"
+          @keyup.enter="addTodo">
+        <span class="input-group-btn">
+          <Button text="Add" @click="addTodo"></Button>
+        </span>
+      </div>
+
+      <!-- todo list -->
       <ul class="list-group">
-        <todo></todo>
+        <li class="list-group-item" v-for="todo in filteredTodos">
+          <todo :item="todo"></todo>
+        </li>
       </ul>
+
+      <!-- footer -->
       <template slot="footer">
         <span>
           <strong>{{ remaining }}</strong>
@@ -20,7 +36,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 import Todo from './Todo';
 import Panel from './Panel';
 import Button from './Button';
@@ -45,19 +61,33 @@ export default {
   },
   computed: {
     todos() {
-      return []; //this.$store.state.todos;
+      return this.$store.state.todos;
+    },
+    filteredTodos() {
+      return filters[this.visibility](this.todos);
     },
     remaining() {
       return this.todos.filter(todo => !todo.done).length;
     },
   },
   methods: {
-    clearCompleted() {
+    addTodo() {
+      const input = this.$refs.newTodo;
+      const text = input.value;
+      if (text.trim()) {
+        this.$store.dispatch('addTodo', { text });
+      }
 
+      input.value = '';
     },
+    ...mapActions([
+      'clearCompleted',
+    ]),
   },
   filters: {
-    pluralize: (num, word) => num === 1 ? word : `${word}s`,
+    pluralize(num, word) {
+      return num === 1 ? word : `${word}s`;
+    },
   },
 };
 </script>

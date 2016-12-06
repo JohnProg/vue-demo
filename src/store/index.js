@@ -7,6 +7,7 @@ Vue.use(Vuex);
 
 const state = {
   count: 0,
+  todos: [],
 };
 
 const store = new Vuex.Store({

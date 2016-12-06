@@ -6,6 +6,9 @@
     <div class="panel-body">
       <slot></slot>
     </div>
+    <div class="panel-footer">
+      <slot name="footer"></slot>
+    </div>
   </div>
 </template>
 

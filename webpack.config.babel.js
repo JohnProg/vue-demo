@@ -5,6 +5,7 @@ import merge from 'webpack-merge';
 import validate from 'webpack-validator';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import htmlWebpackTemplate from 'html-webpack-template';
+import autoprefixer from 'autoprefixer';
 
 const PATHS = {
   app: path.resolve(__dirname, './src/main.js'),
@@ -39,7 +40,7 @@ const commonConfig = {
         loaders: ['style', 'css'],
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: 'url',
         query: {
           limit: 10000,
@@ -47,11 +48,38 @@ const commonConfig = {
         },
       },
       {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        test: /\.svg(\?.*)?$/,
         loader: 'url',
         query: {
           limit: 10000,
-          name: path.join('static', 'fonts/[name].[hash:7].[ext]'),
+          mimetype: 'image/svg+xml',
+        },
+      },
+      {
+        test: /\.eot(\?.*)?$/,
+        loader: 'file',
+      },
+      {
+        test: /\.woff2?(\?.*)?$/,
+        loader: 'url',
+        query: {
+          prefix: 'font',
+          limit: 10000,
+        },
+      },
+      {
+        test: /\.ttf(\?.*)?$/,
+        loader: 'url',
+        query: {
+          limit: 10000,
+          mimetype: 'application/octet-stream',
+        },
+      },
+      {
+        test: /\.otf(\?.*)?$/,
+        loader: 'url',
+        query: {
+          limit: 10000,
         },
       },
     ],
@@ -67,6 +95,7 @@ const commonConfig = {
       inject: false,
     }),
   ],
+  postcss: () => [autoprefixer],
 };
 
 const devConfig = {

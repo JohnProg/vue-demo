@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png" />
-    <counter></counter>
+    <counter :value="$store.state.count"></counter>
     <todo-list></todo-list>
   </div>
 </template>

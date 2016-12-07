@@ -132,6 +132,8 @@ devConfig.watchOptions = {
   poll: 1000,
 };
 
+// TODO: add production config
+
 let config;
 
 config = merge(commonConfig, devConfig);

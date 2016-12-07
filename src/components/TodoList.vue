@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import Todo from './Todo';
 import Panel from './Panel';
 import Button from './Button';
@@ -60,9 +60,9 @@ export default {
     };
   },
   computed: {
-    todos() {
-      return this.$store.state.todos;
-    },
+    ...mapGetters([
+      'todos',
+    ]),
     filteredTodos() {
       return filters[this.visibility](this.todos);
     },

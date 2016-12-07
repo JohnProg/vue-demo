@@ -8,7 +8,7 @@
           placeholder="What needs to be done?"
           @keyup.enter="addTodo">
         <span class="input-group-btn">
-          <Button text="Add" @click="addTodo"></Button>
+          <btn text="Add" @click="addTodo"></btn>
         </span>
       </div>
 
@@ -26,10 +26,10 @@
           {{ remaining | pluralize('item') }} left
         </span>
         <ul class="filters"></ul>
-        <Button text="Clear completed"
+        <btn text="Clear completed"
           @click="clearCompleted"
           :visible="todos.length > remaining">
-        </Button>
+        </btn>
       </template>
     </Panel>
   </section>
@@ -39,7 +39,7 @@
 import { mapGetters, mapActions } from 'vuex';
 import Todo from './Todo';
 import Panel from './Panel';
-import Button from './Button';
+import btn from './Button';
 
 const filters = {
   all: todos => todos,
@@ -51,7 +51,7 @@ export default {
   components: {
     Todo,
     Panel,
-    Button,
+    btn,
   },
   data() {
     return {

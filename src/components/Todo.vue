@@ -5,18 +5,18 @@
     </span>
     <input type="text" class="form-control" :value="item.text">
     <span class="input-group-btn">
-      <Button text="x" @click="onDelete"></Button>
+      <btn text="x" @click="onDelete"></btn>
     </span>
   </div>
 </template>
 
 <script>
-import Button from './Button';
+import btn from './Button';
 
 export default {
   name: 'Todo',
   components: {
-    Button,
+    btn,
   },
   props: {
     item: {

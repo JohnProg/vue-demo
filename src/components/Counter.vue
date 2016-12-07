@@ -1,20 +1,20 @@
 <template>
   <Panel title="Counter">
     <p>Count: {{ value }}</p>
-    <Button text="+" @click="increment"></Button>
-    <Button text="-" @click="decrement"></Button>
+    <btn text="+" @click="increment"></btn>
+    <btn text="-" @click="decrement"></btn>
   </Panel>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 import Panel from './Panel';
-import Button from './Button';
+import btn from './Button';
 
 export default {
   components: {
     Panel,
-    Button,
+    btn,
   },
   props: {
     value: {

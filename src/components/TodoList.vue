@@ -25,7 +25,15 @@
           <strong>{{ remaining }}</strong>
           {{ remaining | pluralize('item') }} left
         </span>
-        <ul class="filters"></ul>
+        <ol class="breadcrumb">
+          <li v-for="(val, key) in filters"
+            :class="{ active: visibility === key }">
+            <template v-if="visibility === key">{{ key }}</template>
+            <template v-else>
+              <a href="#" @click.prevent="visibility = key">{{ key }}</a>
+            </template>
+          </li>
+        </ol>
         <btn text="Clear completed"
           @click="clearCompleted"
           :visible="todos.length > remaining">
@@ -41,6 +49,7 @@ import Todo from './Todo';
 import Panel from './Panel';
 import btn from './Button';
 
+// filter todo list functions
 const filters = {
   all: todos => todos,
   active: todos => todos.filter(todo => !todo.done),
@@ -74,7 +83,9 @@ export default {
     addTodo() {
       const input = this.$refs.newTodo;
       const text = input.value;
+
       if (text.trim()) {
+        // TODO: callback
         this.$store.dispatch('addTodo', { text });
       }
 

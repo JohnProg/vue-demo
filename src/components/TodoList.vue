@@ -25,15 +25,8 @@
           <strong>{{ remaining }}</strong>
           {{ remaining | pluralize('item') }} left
         </span>
-        <ol class="breadcrumb">
-          <li v-for="(val, key) in filters"
-            :class="{ active: visibility === key }">
-            <template v-if="visibility === key">{{ key }}</template>
-            <template v-else>
-              <a href="#" @click.prevent="visibility = key">{{ key }}</a>
-            </template>
-          </li>
-        </ol>
+        <breadcrumb :items="filters" :initialSelectedKey="visibility"
+          @select="onSelectFilter"></breadcrumb>
         <btn text="Clear completed"
           @click="clearCompleted"
           :visible="todos.length > remaining">
@@ -48,6 +41,7 @@ import { mapGetters, mapActions } from 'vuex';
 import Todo from './Todo';
 import Panel from './Panel';
 import btn from './Button';
+import Breadcrumb from './Breadcrumb';
 
 // filter todo list functions
 const filters = {
@@ -61,11 +55,15 @@ export default {
     Todo,
     Panel,
     btn,
+    Breadcrumb,
   },
   data() {
     return {
       visibility: 'all',
-      filters,
+      filters: Object.keys(filters).map(key => ({
+        key,
+        text: key,
+      })),
     };
   },
   computed: {
@@ -90,6 +88,9 @@ export default {
       }
 
       input.value = '';
+    },
+    onSelectFilter(params) {
+      this.visibility = params.selectedKey;
     },
     ...mapActions([
       'clearCompleted',

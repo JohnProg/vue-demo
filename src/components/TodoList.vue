@@ -39,9 +39,9 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import Todo from './Todo';
-import Panel from './Panel';
-import btn from './Button';
-import Breadcrumb from './Breadcrumb';
+import Panel from './commons/Panel';
+import btn from './commons/Button';
+import Breadcrumb from './commons/Breadcrumb';
 
 // filter todo list functions
 const filters = {

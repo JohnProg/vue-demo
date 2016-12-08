@@ -8,8 +8,8 @@
 
 <script>
 import { mapActions } from 'vuex';
-import Panel from './Panel';
-import btn from './Button';
+import Panel from './commons/Panel';
+import btn from './commons/Button';
 
 export default {
   components: {

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import btn from './Button';
+import btn from './commons/Button';
 
 export default {
   name: 'Todo',

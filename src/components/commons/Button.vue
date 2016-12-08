@@ -4,7 +4,6 @@
 
 <script>
 export default {
-  name: 'btn',
   props: {
     text: {
       type: String,

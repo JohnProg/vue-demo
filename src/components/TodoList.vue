@@ -8,14 +8,14 @@
           placeholder="What needs to be done?"
           @keyup.enter="addTodo">
         <span class="input-group-btn">
-          <btn text="Add" @click="addTodo"></btn>
+          <std-button text="Add" @click="addTodo" />
         </span>
       </div>
 
       <!-- todo list -->
       <ul class="list-group">
         <li class="list-group-item" v-for="todo in filteredTodos">
-          <todo :item="todo"></todo>
+          <todo :item="todo" />
         </li>
       </ul>
 
@@ -26,11 +26,10 @@
           {{ remaining | pluralize('item') }} left
         </span>
         <breadcrumb :items="filters" :initialSelectedKey="visibility"
-          @select="onSelectFilter"></breadcrumb>
-        <btn text="Clear completed"
+          @select="onSelectFilter" />
+        <std-button text="Clear completed"
           @click="clearCompleted"
-          :visible="todos.length > remaining">
-        </btn>
+          :visible="todos.length > remaining" />
       </template>
     </Panel>
   </section>
@@ -40,7 +39,7 @@
 import { mapGetters, mapActions } from 'vuex';
 import Todo from './Todo';
 import Panel from './commons/Panel';
-import btn from './commons/Button';
+import Button from './commons/Button';
 import Breadcrumb from './commons/Breadcrumb';
 
 // filter todo list functions
@@ -54,7 +53,7 @@ export default {
   components: {
     Todo,
     Panel,
-    btn,
+    StdButton: Button,
     Breadcrumb,
   },
   data() {

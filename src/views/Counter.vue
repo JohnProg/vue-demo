@@ -1,5 +1,5 @@
 <template lang="html">
-  <counter :value="$store.state.counter.count" />
+  <counter class="center-block" :value="$store.state.counter.count" />
 </template>
 
 <script>

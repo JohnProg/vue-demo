@@ -1,10 +1,14 @@
-<template>
-  <div id="app">
+<template lang="html">
+  <div class="container">
     <img src="../assets/logo.png" />
-    <p>
-      <router-link to="/counter">Counter</router-link>
-      <router-link to="/todo">Todo</router-link>
-    </p>
+    <ul class="nav nav-tabs">
+      <router-link tag="li" active-class="active" to="/counter">
+        <a>Counter</a>
+      </router-link>
+      <router-link tag="li" active-class="active" to="/todo">
+        <a>Todo</a>
+      </router-link>
+    </ul>
     <router-view></router-view>
   </div>
 </template>

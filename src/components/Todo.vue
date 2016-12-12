@@ -14,7 +14,6 @@
 import btn from './commons/Button';
 
 export default {
-  name: 'Todo',
   components: {
     btn,
   },

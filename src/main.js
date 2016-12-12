@@ -6,6 +6,7 @@ import store from './store';
 import App from './views/App';
 import Counter from './views/Counter';
 import Todo from './views/Todo';
+import ShoppingCart from './views/ShoppingCart';
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,11 @@ const routes = [
     name: 'todo',
     path: '/todo',
     component: Todo,
+  },
+  {
+    name: 'cart',
+    path: '/shopping-cart',
+    component: ShoppingCart,
   },
 ];
 

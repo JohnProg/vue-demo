@@ -8,6 +8,9 @@
       <router-link tag="li" active-class="active" to="/todo">
         <a>Todo</a>
       </router-link>
+      <router-link tag="li" active-class="active" to="/shopping-cart">
+        <a>Shopping Cart</a>
+      </router-link>
     </ul>
 
     <transition name="fade" mode="out-in">

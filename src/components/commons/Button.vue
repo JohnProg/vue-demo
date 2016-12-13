@@ -1,5 +1,8 @@
 <template>
-  <button class="btn btn-default" @click="onClick" v-show="visible">{{ text }}</button>
+  <button class="btn btn-default" @click="onClick"
+    :disabled="!enabled" v-show="visible">
+    {{ text }}
+  </button>
 </template>
 
 <script>
@@ -12,6 +15,10 @@ export default {
     visible: {
       type: Boolean,
       required: false,
+      default: true,
+    },
+    enabled: {
+      type: Boolean,
       default: true,
     },
   },

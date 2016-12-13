@@ -5,6 +5,7 @@ import * as actions from './actions';
 import * as mutations from './mutations';
 import counter from './modules/counter';
 import todos from './modules/todos';
+import shopping from './modules/shopping';
 
 Vue.use(Vuex);
 
@@ -19,6 +20,7 @@ const store = new Vuex.Store({
   modules: {
     counter,
     todos,
+    shopping,
   },
   strict: true,
   plugins: [],

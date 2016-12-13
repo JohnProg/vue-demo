@@ -1,5 +1,5 @@
 <template lang="html">
-  <span>{{ item.text }}</span>
+  <span>{{ item.title }} - {{ item.price }}</span>
 </template>
 
 <script>

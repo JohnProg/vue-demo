@@ -1,11 +1,14 @@
+// initial state
 const state = {
   todos: [],
 };
 
+// getters
 const getters = {
   todos: state => state.todos,
 };
 
+// actions
 const actions = {
   addTodo: ({ commit }, { text }) => commit('addTodo', {
     text,
@@ -22,6 +25,7 @@ const actions = {
   clearCompleted: ({ commit }) => commit('clearCompleted'),
 };
 
+// mutations
 const mutations = {
   addTodo: (state, { text }) => {
     state.todos.push({

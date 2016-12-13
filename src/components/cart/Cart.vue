@@ -9,12 +9,14 @@
       </li>
     </ul>
 
-    <p>{{ total }}</p>
-    <p>
-      <std-button text="Checkout" @click="checkout(products)"
-        :enabled="products.length > 0" />
-    </p>
-    <p v-show="checkoutStatus">Checkout {{ checkoutStatus }}.</p>
+    <template slot="footer">
+      <p>{{ total }}</p>
+      <p>
+        <std-button text="Checkout" @click="checkout(products)"
+          :enabled="products.length > 0" />
+      </p>
+      <p v-show="checkoutStatus">Checkout {{ checkoutStatus }}.</p>
+    </template>
   </panel>
 </template>
 

@@ -52,6 +52,10 @@ const commonConfig = {
         loaders: ['style', 'css'],
       },
       {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass'],
+      },
+      {
         test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: 'url',
         query: {

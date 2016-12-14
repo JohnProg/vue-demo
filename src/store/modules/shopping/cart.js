@@ -15,7 +15,7 @@ const actions = {
     const savedCartItems = [...state.added];
     commit('checkoutRequest');
     commit('checkoutSuccess');
-  }
+  },
 };
 
 // mutations

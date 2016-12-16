@@ -5,7 +5,11 @@ import merge from 'webpack-merge';
 import validate from 'webpack-validator';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import htmlWebpackTemplate from 'html-webpack-template';
+import StyleLintPlugin from 'stylelint-webpack-plugin';
+
 import autoprefixer from 'autoprefixer';
+import precss from 'precss';
+import cssnext from 'postcss-cssnext';
 
 const PATHS = {
   app: path.resolve(__dirname, './src/main.js'),
@@ -49,11 +53,7 @@ const commonConfig = {
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css'],
-      },
-      {
-        test: /\.scss$/,
-        loaders: ['style', 'css', 'sass'],
+        loaders: ['style', 'css', 'postcss'],
       },
       {
         test: /\.(png|jpe?g|gif)(\?.*)?$/,
@@ -110,8 +110,16 @@ const commonConfig = {
       appMountId: 'app',
       inject: false,
     }),
+    new StyleLintPlugin({
+      configFile: '.stylelintrc.js',
+      files: ['**/*.css'],
+      failOnError: true,
+    }),
   ],
-  postcss: () => [autoprefixer],
+  postcss: () => [
+    precss,
+    cssnext,
+  ],
 };
 
 const devConfig = {

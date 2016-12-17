@@ -6,9 +6,6 @@ import validate from 'webpack-validator';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import htmlWebpackTemplate from 'html-webpack-template';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
-
-import autoprefixer from 'autoprefixer';
-import precss from 'precss';
 import cssnext from 'postcss-cssnext';
 
 const PATHS = {
@@ -117,7 +114,6 @@ const commonConfig = {
     }),
   ],
   postcss: () => [
-    precss,
     cssnext,
   ],
 };

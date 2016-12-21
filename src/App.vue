@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="container">
-    <img src="../assets/logo.png" />
+    <img src="./assets/logo.png" />
     <ul class="nav nav-tabs">
       <router-link tag="li" active-class="active" to="/counter">
         <a>Counter</a>
@@ -20,11 +20,6 @@
     </transition>
   </div>
 </template>
-
-<script>
-export default {
-};
-</script>
 
 <style lang="css">
 .fade-enter-active, .fade-leave-active {

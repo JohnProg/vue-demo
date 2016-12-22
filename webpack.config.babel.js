@@ -6,6 +6,7 @@ import validate from 'webpack-validator';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import htmlWebpackTemplate from 'html-webpack-template';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
+import DashboardPlugin from 'webpack-dashboard/plugin';
 import cssnext from 'postcss-cssnext';
 
 const PATHS = {
@@ -132,6 +133,7 @@ const devConfig = {
     new webpack.HotModuleReplacementPlugin({
       multiStep: true,
     }),
+    new DashboardPlugin(),
   ],
 };
 
